@@ -135,7 +135,7 @@ def main():
             col1, col2 = st.columns([2,4])
             start_button = col1.button('Process .excel files', key='1')
             
-            
+            st.dataframe(df)
             
             st.markdown(horizontal_line)
             title = st.text_input('Project Title', 'DBA')
