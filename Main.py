@@ -158,10 +158,13 @@ def main():
 
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
-            cnts,values = ax.hist(df_vis.iloc[:],ec="red",lw=3)
-            cmap = plt.cm.viridis
-            for i, (cnt, value) in enumerate(zip(cnts, values)):
-                bar.set_facecolor(cmap(cnt/cnts.max()))
+            #ax.hist(df_vis.iloc[:],ec="red",lw=3)
+            N, bins, patches = ax.hist(df_vis.iloc[:], edgecolor='black', linewidth=1)
+            # Random facecolor for each bar
+            import random
+            for i in range(len(N)):
+                patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
+
             if "date" or "Date" in df_vis.columns:
                 ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
                 ax.xaxis.set_major_locator(md.MonthLocator())
