@@ -201,7 +201,7 @@ def main():
                     .encode(
                         x="date",
                         y="installations [-]",
-                        color="symbol",
+                        
                         )
                     )
 
