@@ -133,7 +133,7 @@ def main():
             df = df[columns]  
             
             col1, col2 = st.columns([2,4])
-            start_button = col1.button('Process .excel files', key='1')
+            #start_button = col1.button('Process .excel files', key='1')
             
             st.dataframe(df)
             
@@ -147,7 +147,7 @@ def main():
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             ax.plot(df_vis.iloc[:],df_vis.index)
-            if "date" in df_vis.columns:
+            if "date" or "Date" in df_vis.columns:
                 ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
                 ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
@@ -158,7 +158,7 @@ def main():
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             ax.hist(df_vis.iloc[:],ec="red",lw=3)
-            if "date" in df_vis.columns:
+            if "date" or "Date" in df_vis.columns:
                 ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
                 ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
