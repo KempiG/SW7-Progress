@@ -188,7 +188,7 @@ def main():
 
            
 
-            st.bar_chart(df_vis.iloc[:],df_vis.index)
+            st.bar_chart(df_vis.iloc[:])
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
