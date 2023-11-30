@@ -1,4 +1,5 @@
 pandas
+openpyxl
 matplotlib
 Pillow==8.2.0
 streamlit==1.12.2
