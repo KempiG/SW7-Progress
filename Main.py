@@ -226,7 +226,7 @@ def main():
                 return (lines + points + tooltips).interactive()
 
             chart = get_chart(source)
-            st.altair_chart(df_vis).interactive(), use_container_width=True)
+            st.altair_chart((df_vis).interactive(), use_container_width=True)
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
