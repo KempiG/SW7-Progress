@@ -9,7 +9,7 @@ import streamlit as st
 from PIL import Image
 import datetime
 import openpyxl
-
+import matplotlib.pyplot as plt
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
