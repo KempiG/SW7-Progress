@@ -131,9 +131,18 @@ def main():
             
             if start_button:
                 with st.spinner(text='In progress...'):
-                    #frame = CDC_funcs.convert(list_, radio1, radio2, new_name)    
-                    plt.plot(df.iloc[:,6],df.iloc[:,2])
-                    plt.show()
+                    #frame = CDC_funcs.convert(list_, radio1, radio2, new_name) 
+                    fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+                    #ax.set_yticks([0, 0.2])
+                    ax.plot(df.iloc[:,6],df.iloc[:,2])
+                    #plt.show()
+                    ax.set_yticklabels(['Operational', 'Delay'])
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+                    #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
+                    ax.grid(linestyle="--")
+                    fig.autofmt_xdate()    
+                    st.write(fig)   
+                    
                     if radio2 == 'CSV file':
                         st.write("CSV!")
                     #    tmp_download_link = download_link_csv(frame, 
