@@ -183,7 +183,7 @@ def main():
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%B-%Y'))
                 st.scatter_chart(chart_data, x='Date',y='Number of installations')
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
-                month_data = chart_data.groupby(['Month']).count()
+                month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 st.dataframe(month_data)
                 st.bar_chart(month_data, x='Month',y='Number of installations')
 
