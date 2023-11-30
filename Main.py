@@ -8,6 +8,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import datetime
+from openpyxl import load_workbook
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
@@ -100,7 +101,8 @@ def main():
             for file_ in uploads:
                 ##### only for new file type
                 headers = [0,1]
-                df = pd.read_excel(file_)
+                st.write(file_)
+                df = load_workbook(filename = file_)
                 #df = pd.read_excel(file_, sheet_name = 1 , index_col=False, usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
