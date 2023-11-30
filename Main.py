@@ -135,13 +135,18 @@ def main():
                     title = st.text_input('Project Title', 'DBA')
                     st.write('The current Project is:', title)
 
-                    select_headers = st.multiselect('Add/remove columns', 
+                    #select_headers = st.multiselect('Add/remove columns', 
                                              ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
                                              ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
 
-                    for header in list(df):
-                        if header not in select_headers:
-                            output = df.drop(header, axis=1)
+
+                    columns = st.multiselect("Columns:",df.columns)
+                    filter = st.radio("Choose by:", ("inclusion","exclusion"))
+
+                    if filter == "exclusion":
+                        columns = [col for col in df.columns if col not in columns]
+
+                    df[columns]    
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
