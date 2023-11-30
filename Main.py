@@ -188,10 +188,10 @@ def main():
 
             c = (
             alt.Chart(df_vis.iloc[:])
-           .mark_circle()
-           .encode(x="Date", y="Number of installations", color="c", tooltip=["a", "b", "c"])
+            .mark_circle()
+            .encode(x="Date", y="Number of installations", color="c", tooltip=["a", "b", "c"])
             )
-           st.altair_chart(c, use_container_width=True)
+            st.altair_chart(c, use_container_width=True)
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
