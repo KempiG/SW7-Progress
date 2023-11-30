@@ -80,7 +80,7 @@ horizontal_line = '''
 
 def main():
     
-    technique = st.sidebar.radio("""Choose visualization""", ['General project overview']) #, 'Details'])
+    technique = st.sidebar.radio("""Choose visualization""", ['General project overview']), 'Details'])
     
     #####General info#####
     if technique == 'General project overview':
@@ -109,7 +109,6 @@ def main():
                 #df = pd.read_excel(file_, sheet_name = 1 , usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
-                print(df.head())
                 
             new_name = uploads[0].name
             new_name=new_name.split('_')
@@ -122,17 +121,17 @@ def main():
             
             if start_button:
                 with st.spinner(text='In progress...'):
-                    frame = CDC_funcs.convert(list_, radio1, radio2, new_name)    
+                    #frame = CDC_funcs.convert(list_, radio1, radio2, new_name)    
                 
-                    if radio2 == 'CSV file':
-                        tmp_download_link = download_link_csv(frame, 
-                                                                        f'{new_name}.csv', 
-                                                                        'Click here to download CSV file!')
-                    elif radio2 == 'Excel file':
-                        tmp_download_link = download_link_excel(frame, 
-                                                                          f'{new_name}.xlsx', 
-                                                                          'Click here to download excel file!')
-                    st.markdown(tmp_download_link, unsafe_allow_html=True)                    
+                    #if radio2 == 'CSV file':
+                    #    tmp_download_link = download_link_csv(frame, 
+                    #                                                    f'{new_name}.csv', 
+                    #                                                    'Click here to download CSV file!')
+                    #elif radio2 == 'Excel file':
+                    #    tmp_download_link = download_link_excel(frame, 
+                    #                                                      f'{new_name}.xlsx', 
+                    #                                                      'Click here to download excel file!')
+                    #st.markdown(tmp_download_link, unsafe_allow_html=True)                    
                     
                 st.markdown(horizontal_line)
                 
@@ -140,8 +139,8 @@ def main():
                 st.success('Done!')
 
   #####Details#####
-  #  elif technique == 'Details':
-  #      header2.title("""PVD data import""")
+    elif technique == 'Details':
+        header2.title("""Project details""")
   #      #col1, col2 = st.columns(2)
   #      uploads = st.sidebar.file_uploader('Upload log files', 
   #                                         accept_multiple_files=True, 
