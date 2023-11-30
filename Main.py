@@ -158,7 +158,7 @@ def main():
 
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
-            ax.hist(df.iloc[:,7],ec="red",lw=3)
+            ax.hist(df.iloc[:],ec="red",lw=3)
             ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
             ax.grid(linestyle="--")
             #fig.autofmt_xdate()    
