@@ -195,18 +195,6 @@ def main():
                     empty="none",
                 )
 
-                lines = (
-                    alt.Chart(data, title="Installations per date")
-                    .mark_line()
-                    .encode(
-                        x="date",
-                        y="installations [-]",
-                        
-                        )
-                    )
-
-                # Draw points on the line, and highlight based on selection
-                points = lines.transform_filter(hover).mark_circle(size=65)
 
                 # Draw a rule at the location of the selection
                 tooltips = (
@@ -218,12 +206,12 @@ def main():
                         opacity=alt.condition(hover, alt.value(0.3), alt.value(0)),
                         tooltip=[
                             alt.Tooltip("date", title="Date"),
-                            alt.Tooltip("price", title="Installations [-]"),
+                            alt.Tooltip("installations", title="Installations [-]"),
                         ],
                     )
                     .add_selection(hover)
                 )
-                return (lines + points + tooltips).interactive()
+                return (tooltips).interactive()
 
             chart = get_chart(df_vis)
             st.altair_chart((chart).interactive(), use_container_width=True)
