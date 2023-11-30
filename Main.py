@@ -138,6 +138,10 @@ def main():
                     select_headers = st.multiselect('Add/remove columns', 
                                              ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
                                              ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
+
+                    for header in list(df):
+                        if header not in select_headers:
+                            output = df.drop(header, axis=1)
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
