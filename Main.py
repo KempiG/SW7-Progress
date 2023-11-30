@@ -187,9 +187,9 @@ def main():
             st.write(fig) 
 
             c = (
-            alt.Chart(df_vis.iloc[:]
+            alt.Chart(df_vis.iloc[:])
             .mark_circle()
-            .encode(x="Date", y="Number of installations", color="c", tooltip=["a", "b", "c"])
+            .encode(x="Date", y="Number of installations", color="y", tooltip=["a", "b"])
             )
             st.altair_chart(c, use_container_width=True)
 
