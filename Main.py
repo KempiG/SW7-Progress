@@ -187,16 +187,45 @@ def main():
             st.write(fig) 
 
            
-            #annotation_layer = (
-            #alt.Chart(df_vis)
-            #.mark_text(size=15, text="⬇", dx=9, dy=-10, align="center")
-            #.encode(
-            #    x="date:T",
-            #    y=alt.Y("y:Q"),
-            #    tooltip=["event"],
-            #)
-            #.interactive()
-            #)
+            def get_chart(df_vis):
+                hover = alt.selection_single(
+                    fields=columns,
+                    nearest=True,
+                    on="mouseover",
+                    empty="none",
+                )
+
+                lines = (
+                    alt.Chart(df_vis, title="Installations per date")
+                    .mark_line()
+                    .encode(
+                        x="date",
+                        y="installations [-]",
+                        color="symbol",
+                        )
+                    )
+
+                # Draw points on the line, and highlight based on selection
+                points = lines.transform_filter(hover).mark_circle(size=65)
+
+                # Draw a rule at the location of the selection
+                tooltips = (
+                    alt.Chart(df_vis)
+                    .mark_rule()
+                    .encode(
+                        x="yearmonthdate(date)",
+                        y="installations [-]",
+                        opacity=alt.condition(hover, alt.value(0.3), alt.value(0)),
+                        tooltip=[
+                            alt.Tooltip("date", title="Date"),
+                            alt.Tooltip("price", title="Installations [-]"),
+                        ],
+                    )
+                    .add_selection(hover)
+                )
+                return (lines + points + tooltips).interactive()
+
+            chart = get_chart(source)
             st.altair_chart(df_vis).interactive(), use_container_width=True)
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
