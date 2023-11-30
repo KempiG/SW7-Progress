@@ -134,6 +134,10 @@ def main():
                 with st.spinner(text='In progress...'):
                     title = st.text_input('Project Title', 'DBA')
                     st.write('The current Project is:', title)
+
+                    select_headers = st.multiselect('Add/remove columns', 
+                                             ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
+                                             ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
@@ -167,7 +171,7 @@ def main():
                     
                 st.markdown(horizontal_line)
                 
-                #CDC_funcs.show_preview(frame)
+     
                 st.success('Done!')
 
   #####Details#####
