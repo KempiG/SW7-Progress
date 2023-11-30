@@ -186,9 +186,9 @@ def main():
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 st.dataframe(month_data)
 
-                fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                fig.suptitle(f'Project progress: {title}')
-                st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
+                with st.container():
+                    st.write("f'Project progress: {title}')")
+                    st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
                 
                 
             
