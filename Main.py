@@ -189,7 +189,7 @@ def main():
             c = (
             alt.Chart(df_vis.iloc[:],df_vis.index)
             .mark_circle()
-            .encode(x=df_vis.columns[0], y=df_vis.index, color="r", tooltip=["x", "y"])
+            .encode(x="Installation date", y="Number of installations", color="r", tooltip=["x", "y"])
             )
             st.altair_chart(c, use_container_width=True)
 
