@@ -133,7 +133,7 @@ def main():
                 with st.spinner(text='In progress...'):
                     #frame = CDC_funcs.convert(list_, radio1, radio2, new_name) 
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                    ax.plot(x=df.iloc[:,7])
+                    ax.plot(df.index,df.iloc[:,7])
                     #ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
