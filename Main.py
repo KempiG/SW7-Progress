@@ -136,8 +136,8 @@ def main():
                     st.write('The current Project is:', title)
 
                     #select_headers = st.multiselect('Add/remove columns', 
-                                             ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
-                                             ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
+                    #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
+                    #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
 
 
                     columns = st.multiselect("Columns:",df.columns)
