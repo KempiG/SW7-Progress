@@ -190,8 +190,7 @@ def main():
             c = (
             alt.Chart(chart_data)
             .mark_circle()
-            .encode(x="Installation date", y="Number of installations", tooltip=["x", "y"])
-            )
+            .encode(x="Installation date", y="Number of installations")).interactive()
             st.altair_chart(c, use_container_width=True)
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
