@@ -135,8 +135,6 @@ def main():
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     #ax.set_yticks([0, 0.2])
                     ax.plot(df.iloc[:,7],df.iloc[:,2])
-                    #plt.show()
-                    ax.set_yticklabels(['Operational', 'Delay'])
                     #ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
