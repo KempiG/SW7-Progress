@@ -210,7 +210,7 @@ def main():
               text-align: right;
             }
             """
-            for axes in two_subplot_fig.axes:
+            for axes in fig.axes:
                 for line in axes.get_lines():
                     # get the x and y coords
                     xy_data = line.get_xydata()
@@ -222,7 +222,7 @@ def main():
                     # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
                     tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
                     # Since this is a separate plugin, you have to connect it
-                    plugins.connect(two_subplot_fig, tooltip)
+                    plugins.connect(fig, tooltip)
     
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
