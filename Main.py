@@ -145,15 +145,15 @@ def main():
             df_vis = df[columns_vis]
             
   
-            fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-            fig.suptitle(f'Project progress: {title}')
-            ax.plot(df_vis.iloc[:],df_vis.index)
-            if "date" or "Date" in df_vis.columns:
-                ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
-                ax.xaxis.set_major_locator(md.MonthLocator())
-            ax.grid(linestyle="--")
-            fig.autofmt_xdate()  
-            st.write(fig) 
+            #fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+            #fig.suptitle(f'Project progress: {title}')
+            #ax.plot(df_vis.iloc[:],df_vis.index)
+            #if "date" or "Date" in df_vis.columns:
+            #    ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
+            #    ax.xaxis.set_major_locator(md.MonthLocator())
+            #ax.grid(linestyle="--")
+            #fig.autofmt_xdate()  
+            #st.write(fig) 
 
    
 
