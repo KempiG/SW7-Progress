@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import datetime
-import openpyxl
+
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
@@ -86,7 +86,7 @@ def main():
         header2.title("""General project data import""")
 
         uploads = st.sidebar.file_uploader('Upload project excel', 
-                                           accept_multiple_files=True,type='xlsx')
+                                           accept_multiple_files=True,type='csv')
         radio1 = st.sidebar.radio('Show only completed locations', ['Yes','No'])
         radio2 = st.sidebar.radio('Save output as?', ['Excel file','CSV file'])        
         
@@ -102,10 +102,12 @@ def main():
                 ##### only for new file type
                 #headers = [0,1]
                 st.write(file_)
+                df = pd.read_csv(file_, index_col=True, usecols=(range(100)), header=1)
                 df = load_workbook(filename = file_)
                 #df = pd.read_excel(file_, sheet_name = 1 , index_col=False, usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
+                print(df.head(5))
                 
             new_name = uploads[0].name
             new_name=new_name.split('_')
