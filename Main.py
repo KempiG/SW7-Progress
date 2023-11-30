@@ -145,6 +145,7 @@ def main():
             columns_vis = st.selectbox("Column to plot:",df.columns)
             df_vis = df[columns_vis]
             
+            import streamlit.components.v1 as components
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             ax.plot(df_vis.iloc[:],df_vis.index)
@@ -153,6 +154,7 @@ def main():
                 ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
             fig.autofmt_xdate()   
+            components.html(fig_html, height=600)
             st.write(fig)  
 
 
