@@ -212,10 +212,10 @@ def main():
                     #                                                      'Click here to download excel file!')
                     #st.markdown(tmp_download_link, unsafe_allow_html=True)                    
                     
-                st.markdown(horizontal_line)
+               # st.markdown(horizontal_line)
                 
      
-                st.success('Done!')
+               # st.success('Done!')
 
   #####Details#####
     elif technique == 'Details':
