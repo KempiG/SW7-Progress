@@ -105,6 +105,7 @@ def main():
                 st.write(f'{file_} file uploaded')
                 #df=pd.DataFrame([1,2,3,4,5,6,3,2,5,6,2])
                 df = pd.read_excel(file_)
+                st.dataframe(df)
                 #####
                 list_.append(df)
                 
