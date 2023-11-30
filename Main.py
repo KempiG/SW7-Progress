@@ -101,7 +101,7 @@ def main():
             for file_ in uploads:
                 ##### only for new file type
                 #headers = [0,1]
-                st.write(file_)
+                st.write(f'{file_} file uploaded')
                 print(file_)
                 df=[1,2,3]
                 #df = pd.read_excel(file_)
