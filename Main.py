@@ -185,7 +185,11 @@ def main():
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 st.dataframe(month_data)
-                st.bar_chart(month_data, x='Month',y='Number of installations')
+
+                
+                N,bins, patches = st.bar_chart(month_data, x='Month',y='Number of installations')
+                for i in range(len(N)):
+                patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
 
                 
             
