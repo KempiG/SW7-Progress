@@ -127,6 +127,15 @@ def main():
             
             col1, col2 = st.columns([2,4])
             start_button = col1.button('Process .excel files', key='1')
+
+
+             columns = st.multiselect("Columns:",df.columns)
+                    filter = st.radio("Choose by:", ("inclusion","exclusion"))
+
+                    if filter == "exclusion":
+                        columns = [col for col in df.columns if col not in columns]
+
+                    df = df[columns]  
             
             st.markdown(horizontal_line)
             
@@ -140,13 +149,7 @@ def main():
                     #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
 
 
-                    columns = st.multiselect("Columns:",df.columns)
-                    filter = st.radio("Choose by:", ("inclusion","exclusion"))
-
-                    if filter == "exclusion":
-                        columns = [col for col in df.columns if col not in columns]
-
-                    df = df[columns]    
+                     
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
