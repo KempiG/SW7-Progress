@@ -187,7 +187,7 @@ def main():
             st.write(fig) 
 
             c = (
-            alt.Chart(df_vis.iloc[:])
+            alt.Chart(df_vis.iloc[:]
             .mark_circle()
             .encode(x="Date", y="Number of installations", color="c", tooltip=["a", "b", "c"])
             )
