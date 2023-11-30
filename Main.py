@@ -186,7 +186,7 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            brush = alt.selection_interval(encodings=["x"])]
+            brush = alt.selection_interval(encodings=["x"])
             scale = alt.Scale(
             domain=[0, 5, 10, 15, 20],
             range=["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"],
