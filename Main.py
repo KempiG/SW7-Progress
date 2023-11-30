@@ -181,13 +181,13 @@ def main():
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%B-%Y'))
-                st.scatter_chart(chart_data, x='Date',y='Number of installations')
+                st.line_chart(chart_data, x='Date',y='Number of installations')
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 st.dataframe(month_data)
 
                 with st.container():
-                    st.write("f'Project progress: {title}')")
+                    st.write(f"Project progress: {title}")
                     st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
                 
                 
