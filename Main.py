@@ -111,7 +111,7 @@ def main():
                     if ('overview' in name.lower()):
                         df = data.parse(name)
                         output = pd.concat([output, df], ignore_index = True)
-                        output.rename(columns=output.iloc[0]).drop(output.index[0]).reset_index(drop=True)
+                output.rename(columns=output.iloc[0]).drop(output.index[0]).reset_index(drop=True)
                         #output = header=1,skiprows=[2,3,4,5,6]
                 st.dataframe(output)
                 #####
