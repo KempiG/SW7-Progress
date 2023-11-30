@@ -158,22 +158,22 @@ def main():
    
 
 
-            fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-            fig.suptitle(f'Project progress: {title}')
+            #fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+            #fig.suptitle(f'Project progress: {title}')
             #ax.hist(df_vis.iloc[:],ec="red",lw=3)
-            N, bins, patches = ax.hist(df_vis.iloc[:], edgecolor='black', linewidth=1)
+            #N, bins, patches = ax.hist(df_vis.iloc[:], edgecolor='black', linewidth=1)
             # Random facecolor for each bar
-            import random
-            import string
-            for i in range(len(N)):
-                patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
+            #import random
+            #import string
+            #for i in range(len(N)):
+            #    patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
 
-            if "date" or "Date" in df_vis.columns:
-                ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
-                ax.xaxis.set_major_locator(md.MonthLocator())
-            ax.grid(linestyle="--")
+            #if "date" or "Date" in df_vis.columns:
+            #    ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
+            #    ax.xaxis.set_major_locator(md.MonthLocator())
+            #ax.grid(linestyle="--")
             #fig.autofmt_xdate()    
-            st.write(fig)   
+            #st.write(fig)   
 
 
             #st.dataframe(df_vis.index)
