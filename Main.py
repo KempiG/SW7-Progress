@@ -186,28 +186,18 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            brush = alt.selection_interval(encodings=["x"])
-            scale = alt.Scale(
-            domain=[0, 5, 10, 15, 20],
-            range=["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"],
-            )
-            color = alt.Color("Number of installations", scale=scale)
-            click = alt.selection_multi(encodings=["color"])
-            bars = (
-            alt.Chart()
-            .mark_bar()
-            .encode(
-                x="Date",
-                y="Number of installations",
-                color=alt.condition(click, color, alt.value("lightgray")),
-            )
-            .transform_filter(brush)
-            .properties(
-                width=550,
-            )
-            .add_selection(click)
-            )
-
+           
+            #annotation_layer = (
+            #alt.Chart(df_vis)
+            #.mark_text(size=15, text="⬇", dx=9, dy=-10, align="center")
+            #.encode(
+            #    x="date:T",
+            #    y=alt.Y("y:Q"),
+            #    tooltip=["event"],
+            #)
+            #.interactive()
+            #)
+            st.altair_chart(df_vis).interactive(), use_container_width=True)
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
