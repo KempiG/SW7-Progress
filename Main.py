@@ -190,7 +190,7 @@ def main():
             c = (
             alt.Chart(chart_data)
             .mark_circle()
-            .encode(x="Installation date", y="Number of installations", color="r", tooltip=["x", "y"])
+            .encode(x="Installation date", y="Number of installations", tooltip=["x", "y"])
             )
             st.altair_chart(c, use_container_width=True)
 
