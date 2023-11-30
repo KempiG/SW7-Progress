@@ -138,9 +138,12 @@ def main():
             
             
             st.markdown(horizontal_line)
-
+            title = st.text_input('Project Title', 'DBA')
+            st.write('The current Project is:', title)
+            
             columns_vis = st.selectbox("Column to plot:",df.columns)
             df_vis = df[columns_vis]
+            
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             #ax.plot(df.iloc[:,7],df.index)
