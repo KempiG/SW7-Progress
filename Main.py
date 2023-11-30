@@ -159,7 +159,7 @@ def main():
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             ax.hist(df_vis.iloc[:],ec="red",lw=3)
-            ax.xaxis.set_major_formatter(md.DateFormatter('%b'))
+            ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
             ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
             #fig.autofmt_xdate()    
