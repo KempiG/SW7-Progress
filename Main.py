@@ -79,7 +79,7 @@ horizontal_line = '''
 
 def main():
     
-    technique = st.sidebar.radio("""Choose visualization""", ['General project overview', 'Details'])
+    technique = st.sidebar.radio("""Choose visualization""", ['General project overview']) #, 'Details'])
     
     #####General info#####
     if technique == 'General project overview':
@@ -135,15 +135,15 @@ def main():
                 #CDC_funcs.show_preview(frame)
                 st.success('Done!')
 
-  #####PVD#####
-    elif technique == 'Details':
-        header2.title("""PVD data import""")
-        #col1, col2 = st.columns(2)
-        uploads = st.sidebar.file_uploader('Upload log files', 
-                                           accept_multiple_files=True, 
-                                           type='ext',
-                                           help="""Select one or multiple Excel files with project data""")                
-        radio1 = st.sidebar.radio('Save as?', ['Excel file','CSV file'])
+  #####Details#####
+  #  elif technique == 'Details':
+  #      header2.title("""PVD data import""")
+  #      #col1, col2 = st.columns(2)
+  #      uploads = st.sidebar.file_uploader('Upload log files', 
+  #                                         accept_multiple_files=True, 
+  #                                         type='ext',
+  #                                         help="""Select one or multiple Excel files with project data""")                
+  #      radio1 = st.sidebar.radio('Save as?', ['Excel file','CSV file'])
         #radio2 = st.sidebar.radio('Show platform thickness map?', ['No', 'Yes'])
         
         # if radio2 == 'Yes':
@@ -161,36 +161,36 @@ def main():
         #     wp_select = 'No'
         #     fixed_nr = 'No'
         
-        wp_select = 'No'
-        fixed_nr = 'No'
+   #     wp_select = 'No'
+   #     fixed_nr = 'No'
         
-        radio3 = st.sidebar.radio('Which columns?', 
-                                  ['Default columns (recommended)', 'Columns from file'],
-                                  help="""**Default columns:** The output file will always contain the same columns
-                                  independent of the columns in the uploaded EXT files  
-                                  **Columns from file:**
-                                  The output file will contain all the columns in the uploaded EXT files, 
-                                  note that this can differ based on the CMS version""")
+   #     radio3 = st.sidebar.radio('Which columns?', 
+   #                               ['Default columns (recommended)', 'Columns from file'],
+   #                               help="""**Default columns:** The output file will always contain the same columns
+   #                               independent of the columns in the uploaded EXT files  
+   #                               **Columns from file:**
+   #                               The output file will contain all the columns in the uploaded EXT files, 
+   #                               note that this can differ based on the CMS version""")
                                 
-        if len(uploads) == 1:
-            st.write(f' **{len(uploads)}** file imported')
-        else:
-            st.write(f' **{len(uploads)}** files imported')
+   #     if len(uploads) == 1:
+   #         st.write(f' **{len(uploads)}** file imported')
+   #     else:
+   #         st.write(f' **{len(uploads)}** files imported')
             
-        if len(uploads) > 0:
-            list_, headerlist = PVD_funcs.list_ext(uploads, radio3)
+   #     if len(uploads) > 0:
+   #         list_, headerlist = PVD_funcs.list_ext(uploads, radio3)
                         
-            col1, col2 = st.columns([2,4])
+   #         col1, col2 = st.columns([2,4])
             
-            if 'bool' not in st.session_state:
-                st.session_state.bool = False            
+   #         if 'bool' not in st.session_state:
+   #             st.session_state.bool = False            
             
-            start_button = col1.button('Start processing / Reset')
+   #         start_button = col1.button('Start processing / Reset')
                   
-            if start_button:
-                st.session_state.bool = not st.session_state.bool
+   #         if start_button:
+   #             st.session_state.bool = not st.session_state.bool
                         
-            st.markdown(horizontal_line)
+   #         st.markdown(horizontal_line)
             
             #if st.session_state.bool:
             #    with st.spinner(text='In progress...'):
