@@ -11,7 +11,7 @@ import datetime
 import openpyxl
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
-import seaborn as sns 
+#import seaborn as sns 
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
@@ -158,7 +158,10 @@ def main():
 
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
-            ax.hist(df_vis.iloc[:],ec="red",lw=3)
+            cnts,values = ax.hist(df_vis.iloc[:],ec="red",lw=3)
+            cmap = plt.cm.viridis
+            for i, (cnt, value) in enumerate(zip(cnts, values)):
+                bar.set_facecolor(cmap(cnt/cnts.max()))
             if "date" or "Date" in df_vis.columns:
                 ax.xaxis.set_major_formatter(md.DateFormatter('%b-%Y'))
                 ax.xaxis.set_major_locator(md.MonthLocator())
@@ -167,7 +170,7 @@ def main():
             st.write(fig)   
 
 
-            sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
+            #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
             
             #if start_button:
