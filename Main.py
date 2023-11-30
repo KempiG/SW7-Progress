@@ -189,8 +189,7 @@ def main():
             chart_data = df_vis.iloc[:]
             c = (
             alt.Chart(chart_data)
-            .mark_circle()
-            .encode().interactive()
+            .mark_circle()).interactive()
             st.altair_chart(c, use_container_width=True)
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
