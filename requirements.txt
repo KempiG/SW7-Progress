@@ -1,5 +1,5 @@
 pandas
-openpyxl
+openpyxl==3.0.10
 matplotlib
 Pillow==8.2.0
 streamlit==1.12.2
