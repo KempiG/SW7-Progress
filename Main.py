@@ -103,7 +103,12 @@ def main():
                 ##### only for new file typ
                 st.write(f'{file_} file uploaded')
                 df = pd.read_excel(file_,sheet_name=1,header=1,skiprows=[2,3,4,5,6])
+                df = df["WTG"].replace("None", np.nan)
+                df = df.dropna()
                 st.dataframe(df)
+
+
+                
                 #data = pd.ExcelFile(file_)
                 #output=pd.DataFrame()
                 #names = data.sheet_names
