@@ -105,8 +105,6 @@ def main():
                 st.write(f'{file_} file uploaded')
                 #df=pd.DataFrame([1,2,3,4,5,6,3,2,5,6,2])
                 df = pd.read_excel(file_)
-                #df = pd.read_csv(file_, header=1,encoding='unicode_escape')
-                #df = pd.read_excel(file_, sheet_name = 1 , usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
                 
@@ -122,12 +120,14 @@ def main():
             if start_button:
                 with st.spinner(text='In progress...'):
                     #frame = CDC_funcs.convert(list_, radio1, radio2, new_name)    
-                
-                    #if radio2 == 'CSV file':
+                    
+                    if radio2 == 'CSV file':
+                        st.write("CSV!")
                     #    tmp_download_link = download_link_csv(frame, 
                     #                                                    f'{new_name}.csv', 
                     #                                                    'Click here to download CSV file!')
-                    #elif radio2 == 'Excel file':
+                    elif radio2 == 'Excel file':
+                        st.write("Excel!")
                     #    tmp_download_link = download_link_excel(frame, 
                     #                                                      f'{new_name}.xlsx', 
                     #                                                      'Click here to download excel file!')
