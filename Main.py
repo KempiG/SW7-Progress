@@ -187,34 +187,8 @@ def main():
             st.write(fig) 
 
            
-            def get_chart(data):
-                hover = alt.selection_single(
-                    fields=columns,
-                    nearest=True,
-                    on="mouseover",
-                    empty="none",
-                )
 
-
-                # Draw a rule at the location of the selection
-                tooltips = (
-                    alt.Chart(data)
-                    .mark_rule()
-                    .encode(
-                        x="yearmonthdate(date)",
-                        y="installations [-]",
-                        opacity=alt.condition(hover, alt.value(0.3), alt.value(0)),
-                        tooltip=[
-                            alt.Tooltip("date", title="Date"),
-                            alt.Tooltip("installations", title="Installations [-]"),
-                        ],
-                    )
-                    .add_selection(hover)
-                )
-                return (tooltips).interactive()
-
-            chart = get_chart(df_vis)
-            st.altair_chart((chart).interactive(), use_container_width=True)
+            st.bar_chart(df_vis.iloc[:],df_vis.index)
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
