@@ -137,7 +137,7 @@ def main():
                     ax.plot(df.iloc[:,6],df.iloc[:,2])
                     #plt.show()
                     ax.set_yticklabels(['Operational', 'Delay'])
-                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+                    #ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
                     fig.autofmt_xdate()    
