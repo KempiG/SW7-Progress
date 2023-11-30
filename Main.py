@@ -10,6 +10,7 @@ from PIL import Image
 import datetime
 import openpyxl
 import matplotlib.pyplot as plt
+import matplotlib.dates as md
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
@@ -134,7 +135,7 @@ def main():
                     #frame = CDC_funcs.convert(list_, radio1, radio2, new_name) 
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     ax.plot(df.iloc[:,7],df.index)
-                    #ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
                     fig.autofmt_xdate()    
