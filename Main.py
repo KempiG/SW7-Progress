@@ -104,13 +104,13 @@ def main():
                 st.write(f'{file_} file uploaded')
                 #df = pd.read_excel(file_,sheet_name=1,header=1,skiprows=[2,3,4,5,6])
                 #st.dataframe(df)
-                data = pd.ExcelFile(file_,header=1,skiprows=[2,3,4,5,6])
+                data = pd.ExcelFile(file_)
                 output=pd.DataFrame()
                 names = data.sheet_names
                 for name in names:
                     if ('overview' in name.lower()):
                         df = data.parse(name)
-                        output = pd.concat([output, df], ignore_index = True)
+                        output = pd.concat([output, df], ignore_index = True,header=1,skiprows=[2,3,4,5,6])
                 st.dataframe(output)
                 #####
                 list_.append(df)
