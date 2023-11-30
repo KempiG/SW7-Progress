@@ -103,6 +103,7 @@ def main():
                 #headers = [0,1]
                 st.write(file_)
                 print(file_)
+                df=[1,2,3]
                 #df = pd.read_excel(file_)
                 #df = pd.read_csv(file_, header=1,encoding='unicode_escape')
                 #df = pd.read_excel(file_, sheet_name = 1 , usecols=(range(100)), header=1)
