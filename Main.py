@@ -127,15 +127,13 @@ def main():
             
             col1, col2 = st.columns([2,4])
             start_button = col1.button('Process .excel files', key='1')
+            
+            columns = st.multiselect("Columns:",df.columns)
+            filter = st.radio("Choose by:", ("inclusion","exclusion"))
 
-
-             columns = st.multiselect("Columns:",df.columns)
-                    filter = st.radio("Choose by:", ("inclusion","exclusion"))
-
-                    if filter == "exclusion":
-                        columns = [col for col in df.columns if col not in columns]
-
-                    df = df[columns]  
+            if filter == "exclusion":
+                columns = [col for col in df.columns if col not in columns]
+            df = df[columns]  
             
             st.markdown(horizontal_line)
             
