@@ -86,7 +86,7 @@ def main():
         header2.title("""General project data import""")
 
         uploads = st.sidebar.file_uploader('Upload project excel', 
-                                           accept_multiple_files=True,type='csv')
+                                           accept_multiple_files=True,type='xlsx')
         radio1 = st.sidebar.radio('Show only completed locations', ['Yes','No'])
         radio2 = st.sidebar.radio('Save output as?', ['Excel file','CSV file'])        
         
