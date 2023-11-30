@@ -145,8 +145,7 @@ def main():
             columns_vis = st.selectbox("Column to plot:",df.columns)
             df_vis = df[columns_vis]
             
-            import streamlit.components.v1 as components
-            import mpld3
+  
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
             ax.plot(df_vis.iloc[:],df_vis.index)
@@ -154,10 +153,8 @@ def main():
                 ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
                 ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
-            fig.autofmt_xdate()   
-            fig_html = mpld3.fig_to_html(fig)
-            components.html(fig, height=600)
-            st.write(fig)  
+            fig.autofmt_xdate()  
+            st.write(fig) 
 
    
 
@@ -179,6 +176,54 @@ def main():
             #fig.autofmt_xdate()    
             st.write(fig)   
 
+
+            fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+            fig.suptitle(f'Project progress: {title}')
+            ax.plot(df_vis.iloc[:],df_vis.index)
+            if "date" or "Date" in df_vis.columns:
+                ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
+                ax.xaxis.set_major_locator(md.MonthLocator())
+            ax.grid(linestyle="--")
+            fig.autofmt_xdate()  
+            st.write(fig) 
+
+            # CODE TO ADD
+            # Define some CSS to control our custom labels
+            css = """
+            table
+            {
+              border-collapse: collapse;
+            }
+            th
+            {
+              color: #ffffff;
+              background-color: #000000;
+            }
+            td
+            {
+              background-color: #cccccc;
+            }
+            table, th, td
+            {
+              font-family:Arial, Helvetica, sans-serif;
+              border: 1px solid black;
+              text-align: right;
+            }
+            """
+            for axes in two_subplot_fig.axes:
+                for line in axes.get_lines():
+                    # get the x and y coords
+                    xy_data = line.get_xydata()
+                    labels = []
+                    for x, y in xy_data:
+                        # Create a label for each point with the x and y coords
+                        html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
+                        labels.append(html_label)
+                    # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
+                    tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
+                    # Since this is a separate plugin, you have to connect it
+                    plugins.connect(two_subplot_fig, tooltip)
+    
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
