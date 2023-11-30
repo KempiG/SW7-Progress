@@ -187,7 +187,7 @@ def main():
                 st.dataframe(month_data)
 
                 
-                st.bar_chart(month_data, x='Month',y='Number of installations')
+                st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
                 
                 
             
