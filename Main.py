@@ -185,7 +185,7 @@ def main():
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).count()
                 st.dataframe(month_data)
-                st.bar_chart(chart_data, x='Month',y='Number of installations')
+                st.bar_chart(month_data, x='Month',y='Number of installations')
 
                 
             
