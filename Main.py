@@ -187,10 +187,8 @@ def main():
                 st.dataframe(month_data)
 
                 
-                N,bins, patches = st.bar_chart(month_data, x='Month',y='Number of installations')
-                for i in range(len(N)):
-                    patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
-
+                st.bar_chart(month_data, x='Month',y='Number of installations')
+                
                 
             
 
