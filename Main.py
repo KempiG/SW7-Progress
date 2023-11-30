@@ -134,7 +134,7 @@ def main():
                     #frame = CDC_funcs.convert(list_, radio1, radio2, new_name) 
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     #ax.set_yticks([0, 0.2])
-                    ax.plot(df.iloc[:,7],df.iloc[:,0])
+                    ax.plot(df.iloc[:,7])
                     #ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
