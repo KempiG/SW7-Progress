@@ -200,13 +200,13 @@ def main():
              #       #fig.autofmt_xdate()    
              #       st.write(fig)   
                     
-                    if radio2 == 'CSV file':
-                        st.write("CSV!")
+                 #   if radio2 == 'CSV file':
+                 #       st.write("CSV!")
                     #    tmp_download_link = download_link_csv(frame, 
                     #                                                    f'{new_name}.csv', 
                     #                                                    'Click here to download CSV file!')
-                    elif radio2 == 'Excel file':
-                        st.write("Excel!")
+                 #   elif radio2 == 'Excel file':
+                 #       st.write("Excel!")
                     #    tmp_download_link = download_link_excel(frame, 
                     #                                                      f'{new_name}.xlsx', 
                     #                                                      'Click here to download excel file!')
