@@ -152,6 +152,8 @@ def main():
                     fig.suptitle(f'Project progress: {title}')
                     ax.plot(df.iloc[:,7],df.index)
                     ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
+                    ax.xaxis.set_major_locator(md.MonthLocator())
+                    #s.xaxis.set_major_formatter(mdates.DateFormatter('%m'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
                     fig.autofmt_xdate()    
