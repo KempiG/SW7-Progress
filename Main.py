@@ -104,7 +104,7 @@ def main():
                 st.write(file_)
                 df = pd.read_csv(file_, index_col=True, usecols=(range(100)), header=1)
                 df = load_workbook(filename = file_)
-                #df = pd.read_excel(file_, sheet_name = 1 , index_col=False, usecols=(range(100)), header=1)
+                #df = pd.read_excel(file_, sheet_name = 1 , usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
                 print(df.head(5))
