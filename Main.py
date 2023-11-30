@@ -11,8 +11,7 @@ import datetime
 import openpyxl
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
-#import seaborn as sns 
-
+import altair as alt
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
     """
@@ -187,44 +186,12 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            from mpld3 import plugins
-            # CODE TO ADD
-            # Define some CSS to control our custom labels
-            css = """
-            table
-            {
-              border-collapse: collapse;
-            }
-            th
-            {
-              color: #ffffff;
-              background-color: #000000;
-            }
-            td
-            {
-              background-color: #cccccc;
-            }
-            table, th, td
-            {
-              font-family:Arial, Helvetica, sans-serif;
-              border: 1px solid black;
-              text-align: right;
-            }
-            """
-            for axes in fig.axes:
-                for line in axes.get_lines():
-                    # get the x and y coords
-                    xy_data = line.get_xydata()
-                    labels = []
-                    for x, y in xy_data:
-                        # Create a label for each point with the x and y coords
-                        html_label = f'<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> </thead> <tbody> <tr> <th>x</th> <td>{x}</td> </tr> <tr> <th>y</th> <td>{y}</td> </tr> </tbody> </table>'
-                        labels.append(html_label)
-                    # Create the tooltip with the labels (x and y coords) and attach it to each line with the css specified
-                    tooltip = plugins.PointHTMLTooltip(line, labels, css=css)
-                    # Since this is a separate plugin, you have to connect it
-                    plugins.connect(fig, tooltip)
-    
+            c = (
+            alt.Chart(df_vis.iloc[:])
+           .mark_circle()
+           .encode(x="Date", y="Number of installations", color="c", tooltip=["a", "b", "c"])
+            )
+           st.altair_chart(c, use_container_width=True)
 
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
