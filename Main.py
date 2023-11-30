@@ -102,8 +102,8 @@ def main():
                 ##### only for new file type
                 #headers = [0,1]
                 st.write(f'{file_} file uploaded')
-                df=pd.DataFrame([1,2,3,4,5,6,3,2,5,6,2])
-                #df = pd.read_excel(file_)
+                #df=pd.DataFrame([1,2,3,4,5,6,3,2,5,6,2])
+                df = pd.read_excel(file_)
                 #df = pd.read_csv(file_, header=1,encoding='unicode_escape')
                 #df = pd.read_excel(file_, sheet_name = 1 , usecols=(range(100)), header=1)
                 #####
