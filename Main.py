@@ -146,7 +146,7 @@ def main():
                     if filter == "exclusion":
                         columns = [col for col in df.columns if col not in columns]
 
-                    df[columns]    
+                    df = df[columns]    
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
