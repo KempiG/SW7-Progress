@@ -179,10 +179,9 @@ def main():
             #st.dataframe(df_vis.index)
             if "date" or "Date" in df_vis.columns:
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
-                #chart_data = pd.DataFrame({"Date": df_vis.iloc[:]})
-                #chart_data = pd.DataFrame(df_vis.iloc[:],df_vis.index)
+                chart_data['Month'] = chart_data['Date'].datetime.month
                 st.dataframe(chart_data)
-                st.bar_chart(chart_data, x='Date',y='Number of installations',group=False)
+                st.bar_chart(chart_data, x='Month',y='Number of installations',group=False)
 
                 st.scatter_chart(chart_data, x='Date',y='Number of installations')
             
