@@ -146,7 +146,6 @@ def main():
             
             fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
             fig.suptitle(f'Project progress: {title}')
-            #ax.plot(df.iloc[:,7],df.index)
             ax.plot(df_vis.iloc[:],df_vis.index)
             ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
             ax.xaxis.set_major_locator(md.MonthLocator())
@@ -155,6 +154,15 @@ def main():
             ax.grid(linestyle="--")
             fig.autofmt_xdate()   
             st.write(fig)  
+
+
+            fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+            fig.suptitle(f'Project progress: {title}')
+            ax.hist(df.iloc[:,7],ec="red",lw=3)
+            ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
+            ax.grid(linestyle="--")
+            #fig.autofmt_xdate()    
+            st.write(fig)   
 
             
             if start_button:
