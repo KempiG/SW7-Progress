@@ -124,16 +124,18 @@ def main():
             new_name = uploads[0].name
             new_name=new_name.split('_')
             new_name=new_name[0]
-            
-            col1, col2 = st.columns([2,4])
-            start_button = col1.button('Process .excel files', key='1')
-            
+
             columns = st.multiselect("Columns:",df.columns)
             filter = st.radio("Choose by:", ("inclusion","exclusion"))
 
             if filter == "exclusion":
                 columns = [col for col in df.columns if col not in columns]
             df = df[columns]  
+            
+            col1, col2 = st.columns([2,4])
+            start_button = col1.button('Process .excel files', key='1')
+            
+            
             
             st.markdown(horizontal_line)
             
@@ -147,11 +149,13 @@ def main():
                     #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
 
 
-                     
+                    columns_vis = st.selectbox("Column to plot:",df.columns)
+                    df_vis = df[columns_vis]
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
-                    ax.plot(df.iloc[:,7],df.index)
+                    #ax.plot(df.iloc[:,7],df.index)
+                    ax.plot(df_vis.iloc[:,0],df_vis.index)
                     ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
                     ax.xaxis.set_major_locator(md.MonthLocator())
                     #s.xaxis.set_major_formatter(mdates.DateFormatter('%m'))
