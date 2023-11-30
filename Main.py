@@ -186,7 +186,12 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            brush = alt.selection_interval(encodings=["x"])
+            brush = alt.selection_interval(encodings=["x"])]
+            scale = alt.Scale(
+            domain=[0, 5, 10, 15, 20],
+            range=["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"],
+            )
+            color = alt.Color("Number of installations", scale=scale)
             points = (alt.Chart().mark_point().encode(
                      alt.X("monthdate(date):T", title="Date"),
                     alt.Y(
@@ -194,7 +199,7 @@ def main():
                     title="Number [-]",
                     scale=alt.Scale(domain=[0, 25]),
             ),
-            color=alt.condition(brush,  alt.value("lightgray")),
+            color=alt.condition(brush, color, alt.value("lightgray")),
             size=alt.Size("Number of installations", scale=alt.Scale(range=[5, 25])),)
             .properties(width=550, height=300)
             .add_selection(brush)
