@@ -166,39 +166,39 @@ def main():
             st.write(fig)   
 
             
-            if start_button:
-                with st.spinner(text='In progress...'):
-                    title = st.text_input('Project Title', 'DBA')
-                    st.write('The current Project is:', title)
+            #if start_button:
+            #    with st.spinner(text='In progress...'):
+            #        title = st.text_input('Project Title', 'DBA')
+            #        st.write('The current Project is:', title)
 
                     #select_headers = st.multiselect('Add/remove columns', 
                     #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'], 
                     #                         ['Date', 'Time','Acceleration','Direction [deg]', 'X','Y', 'Pass', 'Speed [km/h]'])   
 
 
-                    columns_vis = st.selectbox("Column to plot:",df.columns)
-                    df_vis = df[columns_vis]
+            #        columns_vis = st.selectbox("Column to plot:",df.columns)
+            #        df_vis = df[columns_vis]
                     
-                    fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                    fig.suptitle(f'Project progress: {title}')
-                    #ax.plot(df.iloc[:,7],df.index)
-                    ax.plot(df_vis.iloc[:,0],df_vis.index)
-                    ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
-                    ax.xaxis.set_major_locator(md.MonthLocator())
+            #        fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+            #        fig.suptitle(f'Project progress: {title}')
+            #        #ax.plot(df.iloc[:,7],df.index)
+            #        ax.plot(df_vis.iloc[:,0],df_vis.index)
+            #        ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
+            #        ax.xaxis.set_major_locator(md.MonthLocator())
                     #s.xaxis.set_major_formatter(mdates.DateFormatter('%m'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
-                    ax.grid(linestyle="--")
-                    fig.autofmt_xdate()    
-                    st.write(fig)  
+            #        ax.grid(linestyle="--")
+            #        fig.autofmt_xdate()    
+            #        st.write(fig)  
 
                     
-                    fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                    fig.suptitle(f'Project progress: {title}')
-                    ax.hist(df.iloc[:,7],ec="red",lw=3)
-                    ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
-                    ax.grid(linestyle="--")
-                    #fig.autofmt_xdate()    
-                    st.write(fig)   
+             #       fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
+             #       fig.suptitle(f'Project progress: {title}')
+             #       ax.hist(df.iloc[:,7],ec="red",lw=3)
+             #       ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
+             #       ax.grid(linestyle="--")
+             #       #fig.autofmt_xdate()    
+             #       st.write(fig)   
                     
                     if radio2 == 'CSV file':
                         st.write("CSV!")
