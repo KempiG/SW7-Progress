@@ -144,10 +144,10 @@ def main():
                     fig.autofmt_xdate()    
                     st.write(fig)  
 
-                    colors = ['aqua', 'red', 'gold', 'royalblue', 'darkorange', 'green', 'purple', 'steelblue', 'yellow', 'lime', 'magenta']
+                    
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
                     fig.suptitle(f'Project progress: {title}')
-                    ax.hist(df.iloc[:,7],color=colors)
+                    ax.hist(df.iloc[:,7],ec="red")
                     ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
                     ax.grid(linestyle="--")
                     #fig.autofmt_xdate()    
