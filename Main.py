@@ -132,7 +132,8 @@ def main():
             if start_button:
                 with st.spinner(text='In progress...'):
                     #frame = CDC_funcs.convert(list_, radio1, radio2, new_name)    
-                    
+                    plt.plot(df.iloc[:,6],df.iloc[:,2])
+                    plt.show()
                     if radio2 == 'CSV file':
                         st.write("CSV!")
                     #    tmp_download_link = download_link_csv(frame, 
