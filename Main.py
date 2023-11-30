@@ -73,7 +73,7 @@ header1.image(image1, width=150)
 horizontal_line = '''
             
     ---
-
+'''
 
 
 def main():
