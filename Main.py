@@ -102,7 +102,7 @@ def main():
             list_ = []
             for file_ in uploads:
                 ##### only for new file typ
-                st.write(f'{file_} file uploaded')
+                #st.write(f'{file_} file uploaded')
                 df = pd.read_excel(file_,sheet_name=1,header=1,skiprows=[2,3,4,5,6])
                 df = df.drop(df[df["WTG"].isna()].index)
                 st.dataframe(df)
