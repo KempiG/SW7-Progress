@@ -11,6 +11,7 @@ import datetime
 import openpyxl
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
+import seaborn as sns 
 
 
 def download_link_csv(object_to_download, download_filename, download_link_text):
@@ -164,6 +165,9 @@ def main():
             ax.grid(linestyle="--")
             #fig.autofmt_xdate()    
             st.write(fig)   
+
+
+            sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
             
             #if start_button:
