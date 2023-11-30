@@ -136,7 +136,7 @@ def main():
                     st.write('The current Project is:', title)
                     
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                    fig.suptitle(title)
+                    fig.suptitle(f'Project progress: {title}')
                     ax.plot(df.iloc[:,7],df.index)
                     ax.xaxis.set_major_formatter(md.DateFormatter('%m-%d-%y'))
                     #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
@@ -145,9 +145,9 @@ def main():
                     st.write(fig)  
 
                     fig, ax = plt.subplots(figsize=[18,3], facecolor='white')
-                    ax.hist(df.iloc[:,7],df.index)
+                    fig.suptitle(f'Project progress: {title}')
+                    ax.hist(df.iloc[:,7])
                     ax.xaxis.set_major_formatter(md.DateFormatter('%m'))
-                    #fig.suptitle(f'{date} - {base_unit}', fontsize=20)
                     ax.grid(linestyle="--")
                     #fig.autofmt_xdate()    
                     st.write(fig)   
