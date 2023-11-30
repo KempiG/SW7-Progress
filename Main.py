@@ -187,6 +187,7 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
+            from mpld3 import plugins
             # CODE TO ADD
             # Define some CSS to control our custom labels
             css = """
