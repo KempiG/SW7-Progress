@@ -80,7 +80,7 @@ horizontal_line = '''
 
 def main():
     
-    technique = st.sidebar.radio("""Choose visualization""", ['General project overview']), 'Details'])
+    technique = st.sidebar.radio("""Choose visualization""", ['General project overview', 'Details'])
     
     #####General info#####
     if technique == 'General project overview':
