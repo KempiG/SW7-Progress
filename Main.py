@@ -186,9 +186,9 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-           
-
-            st.bar_chart(df_vis.iloc[:])
+            if "date" or "Date" in df_vis.columns:
+            chart_data = pd.DataFrame({"col1": df_vis.iloc[:], "col2": df_vis.index})
+            st.bar_chart(chart_data, x='col1',y='col2')
             
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
