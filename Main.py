@@ -162,6 +162,7 @@ def main():
             N, bins, patches = ax.hist(df_vis.iloc[:], edgecolor='black', linewidth=1)
             # Random facecolor for each bar
             import random
+            import string
             for i in range(len(N)):
                 patches[i].set_facecolor("#" + ''.join(random.choices("ABCDEF" + string.digits, k=6)))
 
