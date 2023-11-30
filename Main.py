@@ -186,10 +186,10 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            st.dataframe(df_vis.index)
+            #st.dataframe(df_vis.index)
             if "date" or "Date" in df_vis.columns:
-            chart_data = pd.DataFrame({"col1": df_vis.iloc[:], "col2": df_vis.index})
-            st.bar_chart(chart_data, x='col1',y='col2')
+                chart_data = pd.DataFrame({"col1": df_vis.iloc[:], "col2": df_vis.index})
+                st.bar_chart(chart_data, x='col1',y='col2')
             
             
 
