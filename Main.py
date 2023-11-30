@@ -100,19 +100,11 @@ def main():
         if len(uploads) > 0:
             list_ = []
             for file_ in uploads:
-                ##### only for new file type
-                data = pd.ExcelFile(file_)
-                names = data.sheet_names
-                output=pd.DataFrame()
-                for name in names:
-                    if ('overview' in name.lower()):
-                        df = data.parse(name)
-                        output = pd.concat([output, df], ignore_index = True)
+                ##### only for new file typ
                 st.write(f'{file_} file uploaded')
                 #df=pd.DataFrame([1,2,3,4,5,6,3,2,5,6,2])
-                #df = pd.read_excel(file_,sheet_name=1,header=1,skiprows=[2,3,4,5,6])
-                #st.dataframe(df)
-                st.dataframe(output)
+                df = pd.read_excel(file_,sheet_name=1,header=1,skiprows=[2,3,4,5,6])
+                st.dataframe(df)
                 #####
                 list_.append(df)
                 
