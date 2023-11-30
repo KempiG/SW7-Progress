@@ -100,7 +100,8 @@ def main():
             for file_ in uploads:
                 ##### only for new file type
                 headers = [0,1]
-                df = pd.read_excel(file_, sheet_name = 1 , index_col=False, usecols=(range(100)), header=1)
+                df = pd.read_excel(file_)
+                #df = pd.read_excel(file_, sheet_name = 1 , index_col=False, usecols=(range(100)), header=1)
                 #####
                 list_.append(df)
                 
