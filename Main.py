@@ -154,7 +154,7 @@ def main():
                 ax.xaxis.set_major_locator(md.MonthLocator())
             ax.grid(linestyle="--")
             fig.autofmt_xdate()   
-            components.html(fig_html, height=600)
+            components.html(fig, height=600)
             st.write(fig)  
 
 
