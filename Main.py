@@ -186,12 +186,21 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
-            chart_data = df_vis.iloc[:]
-            c = (
-            alt.Chart(chart_data)
-            .mark_circle()).interactive()
-            st.altair_chart(c, use_container_width=True)
+            brush = alt.selection_interval(encodings=["x"])
+            points = (alt.Chart().mark_point().encode(
+                     alt.X("monthdate(date):T", title="Date"),
+                    alt.Y(
+                    "Number of installations",
+                    title="Number [-]",
+                    scale=alt.Scale(domain=[0, 25]),
+            ),
+            color=alt.condition(brush,  alt.value("lightgray")),
+            size=alt.Size("Number of installations", scale=alt.Scale(range=[5, 25])),)
+            .properties(width=550, height=300)
+            .add_selection(brush)
+            )
 
+            
             #sns.countplot(x=df_vis, palette=['r', 'g', 'b'])
 
             
