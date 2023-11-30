@@ -187,12 +187,13 @@ def main():
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 month_data2 = chart_data.groupby(['Month']).count().unstack(fill_value=0).stack()
-                st.dataframe(month_data2)
+                
 
                 with st.container():
                     st.write(f"Project progress: {title}")
                     st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
-                
+
+                st.dataframe(month_data2)
                 
             
 
