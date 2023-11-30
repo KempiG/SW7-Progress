@@ -186,8 +186,9 @@ def main():
             fig.autofmt_xdate()  
             st.write(fig) 
 
+            chart_data = df_vis.iloc[:]
             c = (
-            alt.Chart(df_vis.iloc[:],df_vis.index)
+            alt.Chart(chart_data)
             .mark_circle()
             .encode(x="Installation date", y="Number of installations", color="r", tooltip=["x", "y"])
             )
