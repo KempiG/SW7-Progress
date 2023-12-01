@@ -181,7 +181,7 @@ def main():
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%B-%Y'))
-                st.set_page_config(layout='wide')
+       
 
                 st.markdown(
                     """
