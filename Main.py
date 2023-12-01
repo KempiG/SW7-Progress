@@ -180,7 +180,7 @@ def main():
             if "date" or "Date" in df_vis.columns:
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
-                chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%B-%Y'))
+                chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
        
 
                     
