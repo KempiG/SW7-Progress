@@ -135,7 +135,7 @@ def main():
             col1, col2 = st.columns([2,4])
             #start_button = col1.button('Process .excel files', key='1')
             
-            st.dataframe(df)
+            #st.dataframe(df)
             
             st.markdown(horizontal_line)
             title = st.text_input('Project Title', 'DBA')
@@ -176,7 +176,6 @@ def main():
             #st.write(fig)   
 
 
-            #st.dataframe(df_vis.index)
             if "date" or "Date" in df_vis.columns:
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
@@ -191,7 +190,7 @@ def main():
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 month_data = month_data.sort_values(by="Month")
-                st.dataframe(month_data)
+                #st.dataframe(month_data)
 
                 with st.container():
                     st.title(f"Project progress: {title}")
