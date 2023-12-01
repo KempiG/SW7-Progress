@@ -184,7 +184,7 @@ def main():
 
                 test_data = pd.DataFrame()
                 for i in chart_data['Date']:
-                    test_data['Month'] = pd.Period(i, 'M')
+                    test_data = pd.Period(i, 'M')
                 st.dataframe(test_data)
 
                     
