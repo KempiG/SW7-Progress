@@ -183,39 +183,17 @@ def main():
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%B-%Y'))
        
 
-                st.markdown(
-                    """
-                    <style>
-                        div[data-testid="column"]:nth-of-type(1)
-                        {
-                            #border:0.01px solid red;
-                        } 
-                
-                        div[data-testid="column"]:nth-of-type(2)
-                        {
-                            border:1px solid blue;
-                            text-align: end;
-                        } 
-                    </style>
-                    """,unsafe_allow_html=True
-                )
-                
-                col1, col2, col3 = st.columns(3)
-
-                with col2:
-                    
-                    st.write(f"Project progress: {title}")
                     
                 with st.container():
                     st.title(f"Project progress: {title}")
-                    st.write(f"Project progress: {title}")
                     st.line_chart(chart_data, x='Date',y='Number of installations')
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 month_data = month_data.sort_values(by="Month")
+                st.dataframe(month_data)
 
                 with st.container():
-                    st.write(f"Project progress: {title}")
+                    st.title(f"Project progress: {title}")
                     st.bar_chart(month_data, x='Month',y='Number of installations',color="Month")
 
          
