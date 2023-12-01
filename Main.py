@@ -188,7 +188,7 @@ def main():
                     <style>
                         div[data-testid="column"]:nth-of-type(1)
                         {
-                            border:1px solid red;
+                            border:0.01px solid red;
                         } 
                 
                         div[data-testid="column"]:nth-of-type(2)
@@ -203,9 +203,9 @@ def main():
                 col1, col2, col3 = st.columns(3)
 
                 with col2:
-                    """
+                    
                     st.write(f"Project progress: {title}")
-                    """
+                    
                 with st.container():
                     st.write(f"Project progress: {title}")
                     st.line_chart(chart_data, x='Date',y='Number of installations')
