@@ -198,7 +198,7 @@ def main():
 
                 alt.Chart(month_data).mark_bar().encode(
                 x='number of installations:Q',
-                y=alt.Y('month:N').sort('-x')
+                y=alt.Y('month:N').sort('-y')
                 )
                      
 
