@@ -182,10 +182,7 @@ def main():
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
 
-                test_data = pd.DataFrame()
-                for i in chart_data['Date']:
-                    test_data = pd.Period(i, 'M')
-                st.dataframe(test_data)
+          
 
                     
                 with st.container():
@@ -194,7 +191,7 @@ def main():
                 #chart_data = chart_data.sort_values('Number of installations', ascending=False).drop_duplicates(['Month'])
                 month_data = chart_data.groupby(['Month']).size().reset_index(name='Number of installations')
                 chart_data['Month'] = pd.to_datetime(chart_data['Month'])
-                month_data = month_data.sort_values(by="Month")
+                month_data = month_data.sort_values(by="Date")
                 st.dataframe(month_data)
 
                 with st.container():
