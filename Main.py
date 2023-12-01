@@ -194,7 +194,7 @@ def main():
 
                 with st.container():
                     st.title(f"Project progress: {title}")
-                    st.bar_chart(month_data, y='Number of installations',x='Month',color="Month",use_container_width=True)
+                    st.bar_chart(month_data, y='Number of installations',x='Month',color="Month",use_container_width=True,xaxis_rangeslider_visible=True)
 
                 #alt.Chart(month_data).mark_bar().encode(
                 #x='number of installations:Q',
