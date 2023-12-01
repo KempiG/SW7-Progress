@@ -197,10 +197,10 @@ def main():
                     st.title(f"Project progress: {title}")
                     st.bar_chart(month_data, y='Number of installations',x='Month',color="Month")
 
-                alt.Chart(month_data).mark_bar().encode(
-                x='number of installations:Q',
-                y=alt.Y('month:N').sort('-y')
-                )
+                #alt.Chart(month_data).mark_bar().encode(
+                #x='number of installations:Q',
+                #y=alt.Y('month:N').sort('-y')
+                #)
                      
 
             
