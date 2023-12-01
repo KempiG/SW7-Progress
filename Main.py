@@ -182,8 +182,10 @@ def main():
                 chart_data['Date'] = pd.to_datetime(chart_data['Date'])
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
 
-                test_data = chart_data.groupby([chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))]).size()
-                st.dataframe(test_data)
+                test_data = pd.DataFrame()
+                for i in chart_data['Date']:
+                    Test['Month'] = pd.Period(i, 'M')
+                st.dataframe(Test)
 
                     
                 with st.container():
