@@ -1,4 +1,4 @@
-pandas==3.1.0
+pandas
 openpyxl==3.0.10
 streamlit
 matplotlib
