@@ -177,9 +177,9 @@ def main():
 
 
                         
-            if “date” in df_vis.columns or “Date” in df_vis.columns:
+            if 'date' in df_vis.columns or 'Date' in df_vis.columns:
                 # Fix the column name detection logic
-                date_column = “date” if “date” in df_vis.columns else “Date”
+                date_column = 'date' if 'date' in df_vis.columns else 'Date'
                 
                 ```
                 # Convert to datetime and handle errors
