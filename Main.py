@@ -180,12 +180,13 @@ def main():
             if "date" in df_vis.columns or "Date" in df_vis.columns:
                 date_column = "Install date" if "date" in df_vis.columns else "Install Date"
                 date = pd.to_datetime(df_vis[date_column],errors='coerce')
-                installation = df_vis.index
-                chart_data = pd.DataFrame({"Date": date, "Number of installations": installation})
+                date = date.dropna()
+                installation = date.index
+                chart_data = pd.DataFrame(data = {date,installation}, index = "Date", "# of installations")
 
 
                 # Drop rows with invalid or missing dates
-                chart_data = chart_data.dropna(subset=["Date"])
+                #chart_data = chart_data.dropna(subset=["Date"])
 
                 # Create 'Month' column from valid 'Date' values
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
