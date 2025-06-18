@@ -181,7 +181,6 @@ def main():
                 # Fix the column name detection logic
                 date_column = 'date' if 'date' in df_vis.columns else 'Date'
                 
-                ```
                 # Convert to datetime and handle errors
                 date = pd.to_datetime(df_vis[date_column], errors='coerce')
                 
