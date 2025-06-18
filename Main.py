@@ -177,8 +177,9 @@ def main():
 
 
             if "date" or "Date" in df_vis.columns:
-                chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 
+                date_column = "date" if "date" in df_vis.columns else "Date"
+                #chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
                 chart_data = pd.DataFrame({
                     "Date": pd.to_datetime(df_vis[date_column], errors='coerce'),
                     "Number of installations": df_vis.index
