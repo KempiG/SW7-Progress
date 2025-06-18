@@ -176,20 +176,31 @@ def main():
             #st.write(fig)   
 
 
-            
-            if "date" in df_vis.columns or "Date" in df_vis.columns:
-                date_column = "Install date" if "date" in df_vis.columns else "Install Date"
-                date = pd.to_datetime(df_vis[date_column],errors='coerce')
-                date = date.dropna()
-                installation = date.index
-                chart_data = pd.DataFrame(data = {date,installation}, index = ["Date", "# of installations"])
+                        
+            if “date” in df_vis.columns or “Date” in df_vis.columns:
+                # Fix the column name detection logic
+                date_column = “date” if “date” in df_vis.columns else “Date”
                 
-
-                # Create 'Month' column from valid 'Date' values
-                chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
-                chart_data['Month'] = pd.to_datetime(chart_data['Month'], format='%Y-%B', errors='coerce')
-                # Drop rows with invalid 'Month' values if any
-                chart_data = chart_data.dropna(subset=["Month"])
+                ```
+                # Convert to datetime and handle errors
+                date = pd.to_datetime(df_vis[date_column], errors='coerce')
+                
+                # Create a proper DataFrame with valid dates only
+                valid_dates = date.dropna()
+                
+                # Create chart_data DataFrame properly
+                chart_data = pd.DataFrame({
+                    'Date': valid_dates,
+                    '# of installations': range(len(valid_dates))  # or whatever count logic you need
+                })
+                
+                # Create 'Month' column from valid 'Date' values
+                chart_data['Month'] = chart_data['Date'].dt.to_period('M')
+                # Alternative: if you want string format
+                # chart_data['Month'] = chart_data['Date'].dt.strftime('%Y-%B')
+                
+                # If you need datetime format for Month:
+                # chart_data['Month'] = chart_data['Date'].dt.to_period('M').dt.start_time
 
           
 
