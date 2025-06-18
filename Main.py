@@ -183,10 +183,7 @@ def main():
                 date = date.dropna()
                 installation = date.index
                 chart_data = pd.DataFrame(data = {date,installation}, index = ["Date", "# of installations"])
-
-
-                # Drop rows with invalid or missing dates
-                #chart_data = chart_data.dropna(subset=["Date"])
+                
 
                 # Create 'Month' column from valid 'Date' values
                 chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
