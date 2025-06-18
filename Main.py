@@ -178,9 +178,21 @@ def main():
 
             if "date" or "Date" in df_vis.columns:
                 chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
-                chart_data['Date'] = pd.to_datetime(chart_data['Date'])
-                chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
-                chart_data['Month'] = pd.to_datetime(chart_data['Month'])
+                
+                chart_data = pd.DataFrame({
+                    "Date": pd.to_datetime(df_vis[date_column], errors='coerce'),
+                    "Number of installations": df_vis.index
+                    })
+
+                # Drop rows with invalid or missing dates
+                chart_data = chart_data.dropna(subset=["Date"])
+
+                # Create 'Month' column from valid 'Date' values
+                chart_data['Month'] = chart_data['Date'].apply(lambda x: x.strftime('%Y-%B'))
+                chart_data['Month'] = pd.to_datetime(chart_data['Month'], format='%Y-%B', errors='coerce')
+                # Drop rows with invalid 'Month' values if any
+                chart_data = chart_data.dropna(subset=["Month"])
+
           
 
                     
