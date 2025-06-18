@@ -180,10 +180,7 @@ def main():
             if "date" in df_vis.columns or "Date" in df_vis.columns:
                 date_column = "Install date" if "date" in df_vis.columns else "Install Date"
                 #chart_data = pd.DataFrame({"Date": df_vis.iloc[:], "Number of installations": df_vis.index})
-                chart_data = pd.DataFrame({
-                    "Date": pd.to_datetime(df_vis[date_column], errors='coerce'),
-                    "Number of installations": df_vis.index
-                    })
+                chart_data = pd.DataFrame({"Date": pd.to_datetime(df_vis[date_column], errors='coerce'), "Number of installations": df_vis.index})
 
                 # Drop rows with invalid or missing dates
                 chart_data = chart_data.dropna(subset=["Date"])
