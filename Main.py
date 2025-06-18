@@ -182,7 +182,7 @@ def main():
                 date = pd.to_datetime(df_vis[date_column],errors='coerce')
                 date = date.dropna()
                 installation = date.index
-                chart_data = pd.DataFrame(data = {date,installation}, index = "Date", "# of installations")
+                chart_data = pd.DataFrame(data = {date,installation}, index = ["Date", "# of installations"])
 
 
                 # Drop rows with invalid or missing dates
